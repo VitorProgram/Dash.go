@@ -8,10 +8,12 @@ import { RiInputMethodLine } from "react-icons/ri";
 const SideBar = () => {
     return (  
         <Stack gap={36} w="100%" maw={225}>
-            <Image w={100} src="/logo.svg" />
+            <Flex align="center" h={80}>
+                <Image w={100} src="/logo.svg" />
+            </Flex>
 
             <Stack>
-                <Title order={5}>Geral</Title>
+                <Title order={5} c={theme.colors.grayTwo} tt="uppercase">Geral</Title>
 
                 <Anchor href="/dashboard" c={theme.colors.white} td="none">
                     <Flex align="center" gap={8}>
@@ -28,7 +30,7 @@ const SideBar = () => {
             </Stack>
             
             <Stack>
-                <Title order={5}>Automação</Title>
+                <Title order={5} c={theme.colors.grayTwo} tt="uppercase">Automação</Title>
 
                 <Anchor href="/dashboard" c={theme.colors.white} td="none">
                     <Flex align="center" gap={8}>

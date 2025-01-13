@@ -8,6 +8,7 @@ const theme = {
         purple: "#9F7AEA",
         gray: "#9699B0",
         grayTwo: "#797D9A",
+        gray700: "#353646"
     },
 };
 

@@ -19,3 +19,24 @@ export const InputElement = styled(TextInput)`
         color: ${theme.colors.pink};
     }
 `
+
+export const SearchingInputElement = styled(TextInput)`
+    .mantine-TextInput-input {
+        width: 100%;
+        max-width: 374px;
+        height: 42px;
+        padding-left: 28px;
+        color: ${theme.colors.white};
+        border: none;
+        border-radius: 28px;
+        background: ${theme.colors.bgTwo};
+        
+        ::placeholder {
+            color: ${theme.colors.grayTwo};
+        }
+    }
+
+    .mantine-TextInput-section {
+        right: 28px;
+    }
+`
