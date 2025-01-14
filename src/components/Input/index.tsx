@@ -1,16 +1,17 @@
 "use client"
-import { useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 import { InputElement, SearchingInputElement } from "./style";
 import { FiSearch } from "react-icons/fi";
 
 interface InputProps {
     label?: string,
-    variant?: 'searching' 
+    value: string,
+    onChange: ChangeEventHandler,
+    variant?: 'searching',
+    type?: 'password',
 }
 
-const Input = ({ label, variant }: InputProps) => {
-    const [value, setValue] = useState<string>('')
-
+const Input = ({ label, variant, type, value, onChange }: InputProps) => {
     return (  
         <>
             {variant === undefined && (
@@ -19,15 +20,17 @@ const Input = ({ label, variant }: InputProps) => {
                     withAsterisk
                     label={label}
                     value={value}
-                    onChange={(ev) => setValue(ev.target.value)}
-                />
-            )}
+                    type={type}
+                    onChange={onChange}
+                    />
+                )}
             {variant === "searching" && (
                 <SearchingInputElement
+                    type={type}
                     placeholder="Search..."
                     rightSection={<FiSearch />}
                     value={value}
-                    onChange={(ev) => setValue(ev.target.value)}
+                    onChange={onChange}
                 />
             )}
         </>

@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 // Mantine UI
-import '@mantine/core/styles.css'
+import '@mantine/core/styles.css';
 import { MantineProvider } from "@mantine/core";
+import '@mantine/notifications/styles.css';
 
 // Styled
 import StyledComponentsRegistry from "../../lib/styled-components/registry";
 import { GlobalStyle } from "@/styles/global/global";
 import ThemeProvider from "@/components/ThemeProvider";
+import NextAuthSessionProvider from "@/providers/NextAuthSessionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,18 +32,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="pt-br">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeProvider>
+        <NextAuthSessionProvider>
           <StyledComponentsRegistry>
             <MantineProvider>
+              <ThemeProvider>
                 {children}
                 <GlobalStyle />
+              </ThemeProvider>
             </MantineProvider>
           </StyledComponentsRegistry>
-        </ThemeProvider>
+        </NextAuthSessionProvider>
       </body>
     </html>
   );
