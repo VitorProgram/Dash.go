@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 // Mantine UI
 import '@mantine/core/styles.css';
 import { MantineProvider } from "@mantine/core";
+import '@mantine/charts/styles.css';
 import '@mantine/notifications/styles.css';
 
 // Styled

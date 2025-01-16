@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/charts": "^7.16.0",
     "@mantine/core": "^7.15.3",
     "@mantine/hooks": "^7.15.3",
     "@mantine/notifications": "^7.16.0",
@@ -20,6 +21,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
+    "recharts": "2",
     "styled-components": "^6.1.14"
   },
   "devDependencies": {

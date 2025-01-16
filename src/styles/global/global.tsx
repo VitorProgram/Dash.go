@@ -16,6 +16,7 @@ const Global = createGlobalStyle`
     body {
         background: var(--bg);
         color: var(--white);
+        padding: 0 16px;
     }
 `
 
