@@ -22,6 +22,7 @@ const Input = ({ label, variant, type, value, onChange }: InputProps) => {
                     value={value}
                     type={type}
                     onChange={onChange}
+                    flex={1}
                     />
                 )}
             {variant === "searching" && (

@@ -10,7 +10,7 @@ import '@mantine/notifications/styles.css';
 // Styled
 import StyledComponentsRegistry from "../../lib/styled-components/registry";
 import { GlobalStyle } from "@/styles/global/global";
-import ThemeProvider from "@/components/ThemeProvider";
+import ThemeProvider from "@/providers/ThemeProvider";
 import NextAuthSessionProvider from "@/providers/NextAuthSessionProvider";
 
 const geistSans = Geist({
