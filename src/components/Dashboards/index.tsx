@@ -1,8 +1,6 @@
 "use client"
 import theme from "@/styles/theme";
-import { AreaChart, BarChart } from "@mantine/charts";
 import { Flex, Stack, Text, Title } from "@mantine/core";
-import { data } from "../../../lib/data";
 import { useState } from "react";
 import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";

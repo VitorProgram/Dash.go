@@ -2,34 +2,11 @@
 import Input from "@/components/Input";
 import theme from "@/styles/theme";
 import { Button, Flex, Stack } from "@mantine/core";
-import { notifications } from "@mantine/notifications";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { FcPositiveDynamic } from "react-icons/fc";
 
 const Auth = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
-
-  const router = useRouter()
-  
-  const handleSubmit = async (event: FormEvent) => {
-    event.preventDefault()
-    
-    const result = await signIn('credentials', {
-      email,
-      password,
-      redirect: false,
-    })
-
-    if (result?.error) {      
-      console.log(result)
-      return
-    }
-
-    router.replace('/dashboard')
-  }
 
   return (
     <Flex h="100vh" justify="center" align="center">
@@ -41,7 +18,7 @@ const Auth = () => {
         p={32}
         style={{ borderRadius: "6px" }}
       >
-        <form onSubmit={handleSubmit} style={{width: "100%", display: "flex", flexDirection: "column", gap: "16px"}}>
+        <form style={{width: "100%", display: "flex", flexDirection: "column", gap: "16px"}}>
           <Input
             label="E-mail" 
             value={email}
