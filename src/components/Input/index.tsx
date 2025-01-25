@@ -9,9 +9,10 @@ interface InputProps {
     onChange: ChangeEventHandler,
     variant?: 'searching',
     type?: 'password',
+    name?: string
 }
 
-const Input = ({ label, variant, type, value, onChange }: InputProps) => {
+const Input = ({ label, variant, type, value, name, onChange }: InputProps) => {
     return (  
         <>
             {variant === undefined && (
@@ -23,15 +24,17 @@ const Input = ({ label, variant, type, value, onChange }: InputProps) => {
                     type={type}
                     onChange={onChange}
                     flex={1}
+                    name={name}
                     />
                 )}
             {variant === "searching" && (
                 <SearchingInputElement
-                    type={type}
-                    placeholder="Search..."
-                    rightSection={<FiSearch />}
-                    value={value}
-                    onChange={onChange}
+                type={type}
+                placeholder="Search..."
+                rightSection={<FiSearch />}
+                value={value}
+                onChange={onChange}
+                name={name}
                 />
             )}
         </>

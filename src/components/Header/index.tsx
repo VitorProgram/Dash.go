@@ -1,13 +1,21 @@
+'use client'
 import { Avatar, Button, Flex, Stack, Text } from "@mantine/core";
 import Input from "../Input";
 import { FaUserPlus } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
 import theme from "@/styles/theme";
+import { ChangeEvent, useState } from "react";
 
 const Header = () => {
+    const [search, setSearch] = useState<string>('')
+
     return (  
         <Flex justify="space-between" align="center" h={80}>
-            <Input variant="searching"/>
+            <Input 
+                variant="searching" 
+                value={search}  
+                onChange={(ev: ChangeEvent<HTMLInputElement>) => ev.target.value}
+            />
 
             <Flex>
                 <Flex gap={28} pr={28} style={{borderRight: `1px solid ${theme.colors.gray700}`}}>
@@ -30,7 +38,6 @@ const Header = () => {
 
                     <Avatar 
                         size={48} 
-                        src="profile.jpeg" 
                         alt="Minha foto de perfil" 
                         bd={`2px solid ${theme.colors.pink}`}
                         style={{cursor: 'pointer'}}

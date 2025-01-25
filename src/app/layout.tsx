@@ -4,14 +4,12 @@ import { Geist, Geist_Mono } from "next/font/google";
 // Mantine UI
 import '@mantine/core/styles.css';
 import { MantineProvider } from "@mantine/core";
-import '@mantine/charts/styles.css';
-import '@mantine/notifications/styles.css';
 
 // Styled
 import StyledComponentsRegistry from "../../lib/styled-components/registry";
 import { GlobalStyle } from "@/styles/global/global";
 import ThemeProvider from "@/providers/ThemeProvider";
-import NextAuthSessionProvider from "@/providers/NextAuthSessionProvider";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,16 +34,14 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <NextAuthSessionProvider>
-          <StyledComponentsRegistry>
-            <MantineProvider>
-              <ThemeProvider>
-                {children}
-                <GlobalStyle />
-              </ThemeProvider>
-            </MantineProvider>
-          </StyledComponentsRegistry>
-        </NextAuthSessionProvider>
+        <StyledComponentsRegistry>
+          <MantineProvider>
+            <ThemeProvider>
+              {children}
+              <GlobalStyle />
+            </ThemeProvider>
+          </MantineProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
