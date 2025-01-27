@@ -1,8 +1,12 @@
 import Dashboards from "@/components/Dashboards"
+import { Title } from "@mantine/core";
 
 const Dashboard = () => {
     return ( 
-        <Dashboards />
+        <>
+            <Title order={3}>👋 Olá, Vitor</Title>
+            <Dashboards />
+        </>
     );
 }
  

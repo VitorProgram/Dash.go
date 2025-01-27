@@ -1,5 +1,5 @@
 import AuthPage from "@/components/AuthPage";
-import loginAction from "./loginAction";
+import loginAction from "../../api/auth/loginAction";
 
 const Login = () => {
     return (  

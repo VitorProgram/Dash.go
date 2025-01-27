@@ -1,5 +1,5 @@
 import AuthPage from "@/components/AuthPage"
-import registerAction from "./registerAction";
+import registerAction from "../../api/auth/registerAction";
 
 const Register = () => {
   return (
