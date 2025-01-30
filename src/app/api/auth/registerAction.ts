@@ -1,5 +1,5 @@
 'use server'
-import prisma from '../../../../lib/prisma';
+import { prisma } from '../../../../lib/prisma';
 import { hashSync } from 'bcrypt-ts';  // Mantemos o uso de hashSync para o registro
 
 interface registerActionProps {
