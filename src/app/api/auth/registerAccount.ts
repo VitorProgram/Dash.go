@@ -1,30 +1,43 @@
-// 'use server'
-// import { hashSync } from 'bcrypt-ts';
-// import { prisma } from '../../../../lib/prisma';
-// interface registerAccountProps {
-//     name: string,
-//     email: string,
-//     password: string,
-// }
+'use server'
 
-// const registerAccount = async ({ name, email, password }: registerAccountProps ) => {
-//     const existingAccount = await prisma.account.findMany({
-//         where: { email }
-//     })
-//     if (existingAccount) return console.log('Conta existente.')
+import { prisma } from "../../../../lib/prisma";
+import { hashSync } from "bcrypt-ts";
 
-//     const hashedPassword = hashSync(password);
+interface RegisterAccountProps {
+    userId: string
+    name: string;
+    email: string;
+    password: string;
+}
 
-//     await prisma.account.create({
-//         data: {
-//             name, 
-//             email, 
-//             password: hashedPassword,
-//             user: { connect: {email: 'joaovitornascimentoif@gmail.com'} }
-//         }
-//     })
+const registerAccount = async ({ name, email, password, userId }: RegisterAccountProps) => {
+    try {
+        const account = await prisma.userAccount.findUnique({
+            where: { email }
+        })
+    
+        if (account) {
+            throw new Error("A conta já está cadastrada.")
+        }
+    
+        const hashedPassword = hashSync(password)
+    
+        await prisma.userAccount.create({
+            data: {
+                userId,
+                name,
+                email,
+                password: hashedPassword
+            }
+        })
+    
+        return { success: true, message: "Conta do usuário criada." }
+    }
+    catch (error) {
+        console.error("Erro ao registrar uma nova conta pro usuário: ", error)
+        
+        return { success: false, message: "Ocorreu um erro ao registrar o usuário. Tente novamente." }
+    }
+}
 
-//     return { success: true }
-// }
- 
-// export default registerAccount;
+export default registerAccount;

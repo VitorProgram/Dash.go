@@ -13,7 +13,7 @@ const SideBar = () => {
     const currentRoute = usePathname(); // Obtém a rota atual do navegador
 
     return (
-        <Stack gap={36} w="100%" maw={225}>
+        <Stack gap={36} w="100%" maw={225} p={32}>
             <Flex align="center" h={80}>
                 <Image w={100} src="/logo.svg" />
             </Flex>

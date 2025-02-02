@@ -39,16 +39,30 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String        @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?       @unique
   password      String
-  emailVerified DateTime? @map("email_verified")
+  emailVerified DateTime?     @map("email_verified")
   image         String?
   accounts      Account[]
   sessions      Session[]
+  userAccount   UserAccount[]
 
   @@map("users")
+}
+
+model UserAccount {
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model VerificationToken {

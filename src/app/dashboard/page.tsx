@@ -1,4 +1,5 @@
 import Dashboards from "@/components/Dashboards"
+import UserAccountsTable from "@/components/UserAccountsTable";
 import { Title } from "@mantine/core";
 
 const Dashboard = () => {

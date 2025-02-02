@@ -17,8 +17,6 @@ const Header = () => {
     const router = useRouter();
 
     useEffect(() => {
-        console.log("Sessão:", session); // Depuração para ver o que está vindo da sessão
-
         if (status === "unauthenticated") {
             return router.push("/auth/login"); // Redireciona se não estiver logado            
         }
@@ -51,18 +49,10 @@ const Header = () => {
 
                 <Flex gap={16} ml={28}>
                     <Stack justify="center" align="flex-end" gap={8}>
-                        {status === "loading" ? (
-                            <Text size="16px">Carregando...</Text>
-                        ) : userData ? (
-                            <>
-                                <Text size="16px">{userData.name}</Text>
-                                <Text size="14px" c={theme.colors.gray}>
-                                    {userData.email}
-                                </Text>
-                            </>
-                        ) : (
-                            <Text size="16px">Erro ao carregar</Text>
-                        )}
+                        <Text size="16px">{userData?.name}</Text>
+                        <Text size="14px" c={theme.colors.gray}>
+                            {userData?.email}
+                        </Text>
                     </Stack>
 
                     <Avatar 
