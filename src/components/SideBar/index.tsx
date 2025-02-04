@@ -10,49 +10,57 @@ import Link from "next/link";
 import { usePathname } from "next/navigation"; // Importa usePathname
 
 const SideBar = () => {
-    const currentRoute = usePathname(); // Obtém a rota atual do navegador
+  const currentRoute = usePathname(); // Obtém a rota atual do navegador
 
-    return (
-        <Stack gap={36} w="100%" maw={225} p={32}>
-            <Flex align="center" h={80}>
-                <Image w={100} src="/logo.svg" />
+  return (
+    <Stack gap={36} w="100%" maw={225} p={32}>
+      <Flex align="center" h={80}>
+        <Image w={100} src="/logo.svg" />
+      </Flex>
+
+      <Stack>
+        <Title order={5} c={theme.colors.grayTwo} tt="uppercase">
+          Geral
+        </Title>
+
+        <Link href="/dashboard" passHref>
+          <Button
+            c={
+              currentRoute === "/dashboard"
+                ? theme.colors.pink
+                : theme.colors.white
+            }
+            variant="transparent"
+            p={0}
+            fullWidth={false}
+          >
+            <Flex align="center" gap={8} justify="flex-start">
+              <MdDashboard size={20} />
+              <Text>Dashboard</Text>
             </Flex>
+          </Button>
+        </Link>
 
-            <Stack>
-                <Title order={5} c={theme.colors.grayTwo} tt="uppercase">
-                    Geral
-                </Title>
+        <Link href="/dashboard/users" passHref>
+          <Button
+            c={
+              currentRoute === "/dashboard/users"
+                ? theme.colors.pink
+                : theme.colors.white
+            }
+            variant="transparent"
+            p={0}
+            fullWidth={false}
+          >
+            <Flex align="center" gap={8} justify="flex-start">
+              <FaUserCog size={20} />
+              <Text>Users</Text>
+            </Flex>
+          </Button>
+        </Link>
+      </Stack>
 
-                <Link href="/dashboard" passHref>
-                    <Button
-                        c={currentRoute === "/dashboard" ? theme.colors.pink : theme.colors.white}
-                        variant="transparent"
-                        p={0}
-                        fullWidth={false}
-                    >
-                        <Flex align="center" gap={8} justify="flex-start">
-                            <MdDashboard size={20} />
-                            <Text>Dashboard</Text>
-                        </Flex>
-                    </Button>
-                </Link>
-
-                <Link href="/dashboard/users" passHref>
-                    <Button
-                        c={currentRoute === "/dashboard/users" ? theme.colors.pink : theme.colors.white}
-                        variant="transparent"
-                        p={0}
-                        fullWidth={false}
-                    >
-                        <Flex align="center" gap={8} justify="flex-start">
-                            <FaUserCog size={20} />
-                            <Text>Users</Text>
-                        </Flex>
-                    </Button>
-                </Link>
-            </Stack>
-
-            <Stack>
+      {/* <Stack>
                 <Title order={5} c={theme.colors.grayTwo} tt="uppercase">
                     Automação
                 </Title>
@@ -84,9 +92,9 @@ const SideBar = () => {
                         </Flex>
                     </Button>
                 </Link>
-            </Stack>
-        </Stack>
-    );
+            </Stack> */}
+    </Stack>
+  );
 };
 
 export default SideBar;
